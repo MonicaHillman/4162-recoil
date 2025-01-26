@@ -20,6 +20,15 @@ export function useContatos() {
         })
     }
 
+    const atualizarContato = async (id, contato) => {
+        return apiContatos.atualizar(id, contato).then((contatoAtualizado) => {
+            setContatos((listaAntiga) => 
+                listaAntiga.map((contato) => contato._id === id ? contatoAtualizado : contato))
+
+            return contatoAtualizado;
+        })
+    }
+
     useEffect(() => {
         fetchContatos();
     }, [])
@@ -27,6 +36,7 @@ export function useContatos() {
     return {
         contatos,
         fetchContatos,
-        addContatos
+        addContatos,
+        atualizarContato
     }
 }

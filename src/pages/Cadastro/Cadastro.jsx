@@ -7,7 +7,6 @@ import Container from "../../components/Container/Container";
 import BotaoVoltar from "../../components/BotaoVoltar/BotaoVoltar";
 import Formulario from "../../components/Formulario/Formulario";
 import Titulo from "../../components/Titulo/Titulo";
-import { useContatos } from "../../hooks/useContatos";
 
 
 function Cadastro() {
@@ -25,14 +24,9 @@ function Cadastro() {
       [id]: value,
     }));
   };
-  const { addContatos } = useContatos();
-  const handleSubmit = (evento) => {
-    evento.preventDefault();
-    addContatos(dadosDoFormulario).then(() => {
-      navigate("/")
-    }).catch(() => {
-      console.error("Erro ao adicionar o contato");
-    })
+
+  const handleSubmit = (e) => {
+    console.log("Formulário enviado!");
   };
 
 

@@ -19,6 +19,5 @@ export function useContatos() {
     return {
         contatos,
         fetchContatos,
-        addContatos
     }
 }
